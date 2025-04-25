@@ -5,6 +5,7 @@ export type PokemonDetailDTO = {
     height: number
     weight: number
     sprites: {
+        front_shiny: string,
         other: {
             dream_world: {
                 front_default: string | null

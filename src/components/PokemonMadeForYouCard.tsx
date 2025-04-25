@@ -1,31 +1,23 @@
-"use client";
-
-import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-
-export interface Pokemon {
-  id: number;
-  name: string;
-  image: string;
-}
+// components/PokemonMadeForYouCard.tsx
+import { Pokemon } from "@/model/Pokemon"
+import Image from "next/image"
 
 export function PokemonMadeForYouCard({ pokemon }: { pokemon: Pokemon }) {
   return (
-    <Card className="bg-zinc-800 overflow-hidden rounded-lg hover:shadow-lg transition">
-      <CardContent className="p-0 relative h-0 pb-[100%] overflow-visible">
+    <div className="w-full max-w-xs bg-zinc-800 bg-opacity-40 rounded-md overflow-hidden hover:bg-zinc-700 hover:bg-opacity-60 transition group">
+      <div className="relative w-full aspect-square">
         <Image
-          src={pokemon.image}
+          src={pokemon.image || pokemon.imageicon}
           alt={pokemon.name}
           fill
           className="object-contain"
         />
-      </CardContent>
-
-      <div className="px-4 py-3">
-        <p className="text-white font-semibold capitalize truncate">
+      </div>
+      <div className="p-3">
+        <p className="text-white font-medium capitalize truncate">
           {pokemon.name}
         </p>
       </div>
-    </Card>
-  );
+    </div>
+  )
 }

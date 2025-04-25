@@ -19,7 +19,7 @@ export function Header() {
       const pokemon = await fetchPokemon(name);
       router.push(`/pokemon/${pokemon.name}`);
     } catch {
-      console.error("Pokémon not found");
+      console.error("Pokemon not found");
     } finally {
       setQuery("");
     }
@@ -28,7 +28,7 @@ export function Header() {
   return (
     <header className="flex items-center bg-zinc-900 px-6 py-3 space-x-4">
       <div className="flex-shrink-0">
-        <Image src="/spotify_logo.svg" alt="Pokéfy" width={28} height={28} />
+        <Image src="/pokeball.png" alt="Pokefy" width={28} height={28} />
       </div>
       <button
         aria-label="Home"
@@ -42,7 +42,7 @@ export function Header() {
           <input
             name="search"
             type="search"
-            placeholder="Search for a Pokémon…"
+            placeholder="Search for a Pokemon"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="

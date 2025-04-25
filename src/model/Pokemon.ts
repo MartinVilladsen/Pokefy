@@ -10,5 +10,6 @@ export type Pokemon = {
     height: number;
     weight: number;
     image: string;
+    imageicon: string;
     moves: Array<Move>;
 }

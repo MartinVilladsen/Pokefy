@@ -3,6 +3,7 @@ import {Move, Pokemon} from "@/model/Pokemon";
 
 export function mapPokemonDetail(dto: PokemonDetailDTO): Pokemon {
     const image = dto.sprites.other.dream_world.front_default ?? ""
+    const imageicon = dto.sprites.front_shiny
     const types = dto.types.map((type) => type.type.name);
     const moves: Array<Move> = dto.moves.slice(0, 8).map((m) => ({
         name: m.move.name.replace(/'-'/g, " "),
@@ -15,6 +16,7 @@ export function mapPokemonDetail(dto: PokemonDetailDTO): Pokemon {
         height: dto.height / 10,
         weight: dto.weight / 10,
         image,
+        imageicon,
         moves,
     }
 }
