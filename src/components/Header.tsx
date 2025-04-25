@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Home, Search } from "lucide-react";
-import { getPokemon } from "@/app/data/getPokemon";
+import {fetchPokemon} from "@/data/api/pokemon";
 
 export function Header() {
   const [query, setQuery] = useState("");
@@ -16,7 +16,7 @@ export function Header() {
     if (!name) return;
 
     try {
-      const pokemon = await getPokemon(name);
+      const pokemon = await fetchPokemon(name);
       router.push(`/pokemon/${pokemon.name}`);
     } catch {
       console.error("Pokémon not found");

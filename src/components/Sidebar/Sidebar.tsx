@@ -1,9 +1,9 @@
-import { Pokemon, SidePokemonItem } from "./SidePokemonItem";
-import { getPokemons } from "@/app/data/getPokemons";
+import { SidePokemonItem } from "./SidePokemonItem";
 import { SideMenuItem } from "./SideMenuItem";
+import {fetchPokemons} from "@/data/api/pokemon";
 
 export async function Sidebar() {
-  const pokemons: Pokemon[] = await getPokemons(6);
+  const pokemons = await fetchPokemons(6);
 
   return (
     <div className="flex flex-col gap-6">
