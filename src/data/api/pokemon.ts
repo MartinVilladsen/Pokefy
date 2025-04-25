@@ -1,5 +1,3 @@
-"use cache"
-
 import {Evolution, Pokemon} from "@/model/Pokemon";
 import {PokemonDetailDTO} from "@/data/dto/pokemon.dto";
 import {mapPokemonDetail} from "@/data/mappers/mapPokemonDetail";

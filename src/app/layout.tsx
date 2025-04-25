@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Header } from "@/components/Header"
+import { Footer } from "@/components/Footer"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,9 @@ export default function RootLayout({
           <div>
             <Header />
           </div>
-          <main className="flex-1 overflow-y-auto bg-gradient-to-b from-zinc-900 from-opacity-70 to-[#121212]">
-            {children}
+          <main className="flex-1 overflow-y-auto bg-gradient-to-b from-zinc-900 from-opacity-70 to-[#121212] pb-24">            {children}
           </main>
+          <Footer />
         </div>
       </body>
     </html>

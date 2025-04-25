@@ -4,7 +4,8 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Home, Search } from "lucide-react";
-import {fetchPokemon} from "@/data/api/pokemon";
+import { fetchPokemon } from "@/data/api/pokemon";
+import Link from "next/link";
 
 export function Header() {
   const [query, setQuery] = useState("");
@@ -19,7 +20,7 @@ export function Header() {
       const pokemon = await fetchPokemon(name);
       router.push(`/pokemon/${pokemon.name}`);
     } catch {
-      console.error("Pokemon not found");
+      router.push(`/pokemon/snorlax`);
     } finally {
       setQuery("");
     }
@@ -30,13 +31,14 @@ export function Header() {
       <div className="flex-shrink-0">
         <Image src="/pokeball.png" alt="Pokefy" width={28} height={28} />
       </div>
-      <button
-        aria-label="Home"
-        className="p-2 rounded-full hover:bg-zinc-800 transition"
-        onClick={() => router.push("/")}
-      >
-        <Home className="w-5 h-5 text-white" />
-      </button>
+      <Link href={"/"}>
+        <button
+          aria-label="Home"
+          className="p-2 rounded-full hover:bg-zinc-800 transition"
+        >
+          <Home className="w-5 h-5 text-white" />
+        </button>
+      </Link>
       <form onSubmit={handleSubmit} className="flex-1">
         <div className="relative">
           <input
@@ -46,7 +48,7 @@ export function Header() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="
-              w-full pl-10 pr-4 py-2
+              pl-10 pr-4 py-2
               bg-zinc-800 text-white placeholder-zinc-400
               rounded-full focus:outline-none focus:ring-2 focus:ring-zinc-700
             "

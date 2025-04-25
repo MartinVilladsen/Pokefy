@@ -1,22 +1,30 @@
-// components/PokemonMadeForYouCard.tsx
-import { Pokemon } from "@/model/Pokemon"
 import Image from "next/image"
+import { Play } from "lucide-react"
+import { Pokemon } from "@/model/Pokemon"
 
 export function PokemonMadeForYouCard({ pokemon }: { pokemon: Pokemon }) {
   return (
-    <div className="w-full max-w-xs bg-zinc-800 bg-opacity-40 rounded-md overflow-hidden hover:bg-zinc-700 hover:bg-opacity-60 transition group">
-      <div className="relative w-full aspect-square">
+    <div className="group relative bg-zinc-800 bg-opacity-40 rounded-md overflow-hidden hover:bg-zinc-700 hover:bg-opacity-60 transition">
+      <div className="relative aspect-square">
         <Image
-          src={pokemon.image || pokemon.imageicon}
+          src={pokemon.image || pokemon.imageicon || "/placeholder.svg"}
           alt={pokemon.name}
           fill
-          className="object-contain"
+          className="object-contain p-2"
         />
       </div>
-      <div className="p-3">
-        <p className="text-white font-medium capitalize truncate">
-          {pokemon.name}
-        </p>
+      <div className="p-3 flex items-center justify-between">
+        <div className="space-y-1 overflow-hidden">
+          <p className="text-white font-medium capitalize truncate">
+            {pokemon.name}
+          </p>
+          <p className="text-xs text-zinc-400 line-clamp-2">
+            {pokemon.types?.join(", ") || "Pokemon"}
+          </p>
+        </div>
+        <button className="opacity-0 group-hover:opacity-100 p-3 bg-green-500 rounded-full shadow-lg hover:scale-105 transition">
+          <Play className="w-5 h-5 text-black fill-black" />
+        </button>
       </div>
     </div>
   )

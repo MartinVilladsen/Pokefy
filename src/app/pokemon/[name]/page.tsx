@@ -1,10 +1,11 @@
+// app/pokemon/[name]/page.tsx
 import type { Metadata } from "next"
-import {fetchEvolutions, fetchPokemon} from "@/data/api/pokemon"
+import { fetchEvolutions, fetchPokemon } from "@/data/api/pokemon"
 import { BackgroundGradient } from "@/components/BackgroundGradient"
 import { MovesList } from "@/components/MovesList"
 import { PokemonHeader } from "@/components/PokemonHeader"
 import { PokemonControls } from "@/components/PokemonControls"
-import {EvolutionStrip} from "@/components/evolution/EvolutionStrip";
+import { EvolutionStrip } from "@/components/evolution/EvolutionStrip"
 
 type Params = {
   params: Promise<{
@@ -26,7 +27,7 @@ export default async function PokemonPage({ params }: Params) {
 
   const [pokemon, evolution] = await Promise.all([
     fetchPokemon(name),
-    fetchEvolutions(name)
+    fetchEvolutions(name),
   ])
 
   const moveCount = Math.min(pokemon.moves.length, Math.floor(Math.random() * 6) + 10)
@@ -36,14 +37,16 @@ export default async function PokemonPage({ params }: Params) {
     <div className="min-h-[calc(100vh-64px)] relative">
       <BackgroundGradient />
 
-      <div className="relative z-10 py-6 container mx-auto">
-        <div className="flex gap-20 justify-between">
-          <div className="flex flex-col w-full">
+      <div className="relative z-10 py-6 px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
+        <div className="flex flex-col lg:flex-row lg:gap-20">
+          <div className="w-full lg:w-2/3 flex flex-col gap-8">
             <PokemonHeader pokemon={pokemon} moveCount={moveCount} />
             <PokemonControls />
             <MovesList moves={selectedMoves} pokemonName={pokemon.name} />
           </div>
-          <EvolutionStrip evolutions={evolution} />
+          <div className="w-full lg:w-1/3 mt-10 lg:mt-0 relative z-50">
+            <EvolutionStrip evolutions={evolution} />
+          </div>
         </div>
       </div>
     </div>
