@@ -12,4 +12,11 @@ export type Pokemon = {
     image: string;
     imageicon: string;
     moves: Array<Move>;
+    evolutions?: Array<Evolution>;
+}
+
+export type Evolution = {
+    id: number;
+    name: string;
+    image: string;
 }

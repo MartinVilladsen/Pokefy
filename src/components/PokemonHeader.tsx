@@ -1,6 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
 import { TypeBadge } from "@/components/TypeBadge"
 import { Pokemon } from "@/model/Pokemon"
 
@@ -12,10 +10,6 @@ interface PokemonHeaderProps {
 export function PokemonHeader({ pokemon, moveCount }: PokemonHeaderProps) {
   return (
     <>
-      <Link href="/" className="inline-flex p-2 rounded-full bg-black bg-opacity-60 hover:bg-opacity-80 mb-6">
-        <ArrowLeft className="w-5 h-5 text-white" />
-      </Link>
-
       <div className="flex flex-col md:flex-row items-start md:items-end gap-6 mb-6">
         <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 shadow-2xl flex-shrink-0">
           <Image src={pokemon.image || pokemon.imageicon} alt={pokemon.name} fill className="object-contain" />

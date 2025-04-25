@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
-import { fetchPokemon } from "@/data/api/pokemon"
+import {fetchEvolutions, fetchPokemon} from "@/data/api/pokemon"
 import { BackgroundGradient } from "@/components/BackgroundGradient"
 import { MovesList } from "@/components/MovesList"
 import { PokemonHeader } from "@/components/PokemonHeader"
 import { PokemonControls } from "@/components/PokemonControls"
+import {EvolutionStrip} from "@/components/evolution/EvolutionStrip";
 
 type Params = {
   params: Promise<{
@@ -22,7 +23,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function PokemonPage({ params }: Params) {
   const { name } = await params
-  const pokemon = await fetchPokemon(name)
+
+  const [pokemon, evolution] = await Promise.all([
+    fetchPokemon(name),
+    fetchEvolutions(name)
+  ])
 
   const moveCount = Math.min(pokemon.moves.length, Math.floor(Math.random() * 6) + 10)
   const selectedMoves = pokemon.moves.slice(0, moveCount)
@@ -31,10 +36,15 @@ export default async function PokemonPage({ params }: Params) {
     <div className="min-h-[calc(100vh-64px)] relative">
       <BackgroundGradient />
 
-      <div className="relative z-10 p-6 container mx-auto">
-        <PokemonHeader pokemon={pokemon} moveCount={moveCount} />
-        <PokemonControls />
-        <MovesList moves={selectedMoves} pokemonName={pokemon.name} />
+      <div className="relative z-10 py-6 container mx-auto">
+        <div className="flex gap-20 justify-between">
+          <div className="flex flex-col w-full">
+            <PokemonHeader pokemon={pokemon} moveCount={moveCount} />
+            <PokemonControls />
+            <MovesList moves={selectedMoves} pokemonName={pokemon.name} />
+          </div>
+          <EvolutionStrip evolutions={evolution} />
+        </div>
       </div>
     </div>
   )
