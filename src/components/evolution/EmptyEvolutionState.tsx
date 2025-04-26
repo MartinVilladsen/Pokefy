@@ -9,7 +9,7 @@ export function EmptyEvolutionState() {
                     Friend Activity
                 </h3>
             </div>
-            <p className="text-sm text-zinc-400">Connect with friends to see what they're playing.</p>
+            <p className="text-sm text-zinc-400">Connect with friends to see what they&apos;re playing.</p>
             <button className="mt-4 text-sm font-medium text-black bg-green-400 hover:bg-green-500 transition-colors py-2 px-4 rounded-full">
                 Find Friends
             </button>

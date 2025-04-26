@@ -2,7 +2,7 @@ import Image from "next/image"
 import { TypeBadge } from "@/components/TypeBadge"
 import { Pokemon } from "@/model/Pokemon"
 
-interface PokemonHeaderProps {
+type PokemonHeaderProps = {
   pokemon: Pokemon
   moveCount: number
 }
@@ -12,7 +12,14 @@ export function PokemonHeader({ pokemon, moveCount }: PokemonHeaderProps) {
     <>
       <div className="flex flex-col md:flex-row items-start md:items-end gap-6 mb-6">
         <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 shadow-2xl flex-shrink-0">
-          <Image src={pokemon.image || pokemon.imageicon} alt={pokemon.name} fill className="object-contain" />
+          <Image 
+            src={pokemon.image || pokemon.imageicon} 
+            alt={pokemon.name} 
+            fill 
+            className="object-contain" 
+            priority={true} 
+            sizes="(max-width: 768px) 192px, (max-width: 1024px) 224px, 256px"
+          />
         </div>
 
         <div className="flex-1 space-y-2">
@@ -28,6 +35,7 @@ export function PokemonHeader({ pokemon, moveCount }: PokemonHeaderProps) {
                 width={60}
                 height={60}
                 className="object-cover"
+                loading="lazy"
               />
             </div>
             <p className="text-sm text-white font-medium capitalize ml-3">

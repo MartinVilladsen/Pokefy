@@ -42,6 +42,7 @@ export function EvolutionCard({evolution, isActive, onMouseEnterAction, onMouseL
                         width={48}
                         height={48}
                         className="object-contain z-10 transition-all duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
+                        loading="lazy"
                     />
                 )}
             </div>
