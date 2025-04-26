@@ -1,5 +1,3 @@
-"use client"
-
 import Image from "next/image"
 import { Play } from "lucide-react"
 import { Pokemon } from "@/model/Pokemon"
@@ -14,6 +12,7 @@ export function PokemonSmallCard({ pokemon }: { pokemon: Pokemon }) {
           width={56}
           height={56}
           className="object-cover"
+          loading="lazy"
         />
       </div>
 

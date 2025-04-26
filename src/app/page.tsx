@@ -1,3 +1,4 @@
+"use cache"
 import Link from "next/link"
 import { fetchPokemons } from "@/data/api/pokemon"
 import { BackgroundGradient } from "@/components/BackgroundGradient"
@@ -19,7 +20,7 @@ export default async function HomePage() {
           <SectionHeader title="Trending Pokémons" />
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-6">
             {trending.map((p) => (
-              <Link key={p.name} href={`/pokemon/${p.name}`}>
+              <Link key={p.name} href={`/pokemon/${p.name}`} prefetch={true}>
                 <PokemonSmallCard pokemon={p} />
               </Link>
             ))}
@@ -30,7 +31,7 @@ export default async function HomePage() {
           <SectionHeader title="Featured Pokémons" />
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
             {featured.map((p) => (
-              <Link key={p.name} href={`/pokemon/${p.name}`}>
+              <Link key={p.name} href={`/pokemon/${p.name}`} prefetch={true}>
                 <PokemonMadeForYouCard pokemon={p} />
               </Link>
             ))}

@@ -1,4 +1,4 @@
-// app/pokemon/[name]/page.tsx
+"use cache"
 import type { Metadata } from "next"
 import { fetchEvolutions, fetchPokemon } from "@/data/api/pokemon"
 import { BackgroundGradient } from "@/components/BackgroundGradient"
