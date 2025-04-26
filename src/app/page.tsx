@@ -17,7 +17,7 @@ export default async function HomePage() {
 
       <div className="relative z-10 px-6 py-8 mx-auto max-w-7xl space-y-16">
         <section>
-          <SectionHeader title="Trending Pokémons" />
+          <SectionHeader title="Trending Pokemons" />
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-6">
             {trending.map((p) => (
               <Link key={p.name} href={`/pokemon/${p.name}`} prefetch={true}>
@@ -28,7 +28,7 @@ export default async function HomePage() {
         </section>
 
         <section>
-          <SectionHeader title="Featured Pokémons" />
+          <SectionHeader title="Featured Pokemons" />
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
             {featured.map((p) => (
               <Link key={p.name} href={`/pokemon/${p.name}`} prefetch={true}>

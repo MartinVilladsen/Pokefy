@@ -37,9 +37,9 @@ export async function fetchPokemons(count = 20): Promise<Array<Pokemon>> {
     return await Promise.all(
         Array.from(ids).map(async (id) => {
             const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-                next: { revalidate: 600 }
+                next: { revalidate: 20 }
             })
-            if (!res.ok) throw new Error(`Failed to fetch Pokémon #${id}`)
+            if (!res.ok) throw new Error(`Failed to fetch Pokemon #${id}`)
             const dto = await res.json() as PokemonDetailDTO
             return mapPokemonDetail(dto)
         })

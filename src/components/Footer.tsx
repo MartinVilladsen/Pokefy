@@ -28,7 +28,7 @@ export function Footer() {
         <div className="relative w-16 h-16">
           <Image
             src="/pokemoncover.png"
-            alt="Pokémon Theme"
+            alt="Pokemon Theme"
             fill
             className="object-cover rounded-sm"
           />
