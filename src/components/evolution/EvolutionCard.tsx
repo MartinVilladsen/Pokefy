@@ -1,5 +1,4 @@
 "use client"
-
 import {cn} from "@/lib/utils"
 import type {Evolution} from "@/model/Pokemon"
 import Image from "next/image"

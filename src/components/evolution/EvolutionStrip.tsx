@@ -1,5 +1,4 @@
 "use client"
-
 import type {Evolution} from "@/model/Pokemon"
 import {useState} from "react"
 import {EvolutionCard} from "./EvolutionCard"

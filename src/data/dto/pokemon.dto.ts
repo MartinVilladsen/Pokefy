@@ -1,4 +1,3 @@
-
 export type PokemonDetailDTO = {
     id: number
     name: string

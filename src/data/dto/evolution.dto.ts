@@ -1,4 +1,3 @@
-
 export type EvolutionNodeDTO = {
     species: { name: string; url: string}
     evolves_to: Array<EvolutionNodeDTO>
