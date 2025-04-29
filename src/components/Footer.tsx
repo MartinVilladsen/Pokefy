@@ -23,9 +23,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="z-50 fixed bottom-0 left-0 right-0 h-24 bg-zinc-900 text-zinc-400 px-6 flex items-center justify-between select-none">
-      <div className="flex items-center gap-4 w-1/4">
-        <div className="relative w-16 h-16">
+    <footer className="z-50 fixed bottom-0 left-0 right-0 h-24 bg-zinc-900 text-zinc-400 px-6 flex items-center justify-center md:justify-between select-none">
+      <div className="hidden md:flex items-center gap-4 md:w-1/4">
+        <div className="relative w-16 h-16 flex-shrink-0">
           <Image
             src="/pokemoncover.png"
             alt="Pokemon Theme"
@@ -34,11 +34,13 @@ export function Footer() {
           />
         </div>
         <div className="flex flex-col">
-          <span className="text-white font-semibold">Gotta catch em all</span>
-          <span className="text-sm">Pokemon</span>
+          <span className="text-white font-semibold truncate">
+            Gotta catch 'em all
+          </span>
+          <span className="text-sm truncate">Pokemon</span>
         </div>
       </div>
-      <div className="flex flex-col items-center w-1/2">
+      <div className="flex flex-col items-center w-full md:w-1/2">
         <div className="flex items-center gap-6 mb-1">
           <Shuffle className="w-5 h-5 hover:text-white cursor-pointer" />
           <SkipBack className="w-5 h-5 hover:text-white cursor-pointer" />
@@ -70,8 +72,7 @@ export function Footer() {
           <span>3:03</span>
         </div>
       </div>
-
-      <div className="flex items-center gap-4 w-1/4 justify-end">
+      <div className="hidden md:flex items-center gap-4 md:w-1/4 justify-end">
         <Volume2 className="w-5 h-5 hover:text-white cursor-pointer" />
         <input
           type="range"
