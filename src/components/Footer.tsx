@@ -35,7 +35,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col">
           <span className="text-white font-semibold truncate">
-            Gotta catch 'em all
+            Gotta catch em all
           </span>
           <span className="text-sm truncate">Pokemon</span>
         </div>
